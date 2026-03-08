@@ -1,148 +1,233 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rocky</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Rocky Bhai Jackpot</title>
 
+<style>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(135deg, #cdeccf, #b7e4c7);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(180deg,#0b0b0b,#1a0000);
+color:white;
+text-align:center;
+padding:25px;
+}
 
-    .card {
-      background: #ffffff;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 16px;
-      padding: 28px 22px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
+.container{
+max-width:420px;
+margin:auto;
+}
 
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 12px;
-    }
+.logo{
+width:110px;
+height:110px;
+border-radius:50%;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:44px;
+background:#111;
+border:3px solid #ffcc00;
+}
 
-    h1 {
-      font-size: 22px;
-      margin: 6px 0;
-      font-weight: 700;
-    }
+h1{
+margin:18px 0 5px;
+font-size:28px;
+background:linear-gradient(90deg,#ffd700,#ff4e50);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .subscribers {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 14px;
-    }
+.members{
+margin-top:10px;
+font-size:15px;
+opacity:.9;
+}
 
-    .bio {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 22px;
-    }
+.livejoin{
+margin-top:15px;
+font-size:14px;
+color:#ffd700;
+}
 
-    .join-btn {
-      display: inline-block;
-      width: 100%;
-      padding: 14px 0;
-      background: #2aabee;
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: 30px;
-      text-decoration: none;
-    }
+.badge{
+margin-top:15px;
+display:inline-block;
+background:#ff2f6d;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+}
 
-    .telegram-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #f6f6f6;
-      padding: 10px 16px;
-      display: flex;
-      justify-content: space-between;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
+.predictions{
+margin-top:30px;
+text-align:left;
+background:#140000;
+padding:20px;
+border-radius:15px;
+}
 
-    .download-btn {
-      background: #2aabee;
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 16px;
-      font-size: 13px;
-      text-decoration: none;
-    }
-  </style>
+.predictions h2{
+text-align:center;
+margin-bottom:15px;
+color:#ffd700;
+}
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1212293950621102');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2714865622245085&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+.match{
+background:#1d0000;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+font-size:14px;
+line-height:1.6;
+}
+
+.notification{
+position:fixed;
+bottom:90px;
+left:20px;
+background:#111;
+padding:10px 14px;
+border-radius:10px;
+font-size:13px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+opacity:0;
+transition:.4s;
+}
+
+.sticky{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#000;
+padding:15px;
+}
+
+.sticky a{
+display:block;
+background:linear-gradient(90deg,#ffd700,#ff4e50);
+padding:16px;
+border-radius:35px;
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+color:black;
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="telegram-bar">
-    <span>Telegram</span>
-    <a href="https://telegram.org" target="_blank" class="download-btn">DOWNLOAD</a>
-  </div>
+<div class="container">
 
-  <div class="card">
-    <img src="rock.jpg" alt="Ronny Bhai" class="avatar" />
+<div class="logo">
+💰
+</div>
 
-    <h1> Rocky bhai </h1>
-    <div class="subscribers">90,027 subscribers</div>
+<h1>ROCKY BHAI JACKPOT ™</h1>
 
-    <div class="bio">
-     
-      Always free Cricket Predictions 🏏<br>
-	  ORIGINAL LINK 👇<br>
+<div class="members">
+👥 50,910 Subscribers
+</div>
 
-    </div>
+<div class="badge">
+🔥 LIVE JACKPOT PREDICTION
+</div>
 
-    <a
-      href="https://t.me/+vEUvcbB3oMRiMDY1"
-      target="_blank"
-      class="join-btn"
-      onclick="fbq('track','Subscribe');"
-    >
-      JOIN CHANNEL
-    </a>
+<div class="livejoin">
+⚡ <span id="liveJoin">32</span> users joined in last minute
+</div>
 
-    <p style="margin-top:12px;font-size:13px;color:#888;">
-      You’ll be redirected automatically in 20 seconds…
-    </p>
-  </div>
+<div class="predictions">
+
+<h2>🔥 Latest Match Predictions</h2>
+
+<div class="match">
+🏏 India vs New Zealand  
+<b>Toss Prediction:</b> India  
+<b>Match Prediction:</b> India Win
+</div>
+
+<div class="match">
+🏏 Australia vs England  
+<b>Toss Prediction:</b> Australia  
+<b>Match Prediction:</b> Australia Win
+</div>
+
+<div class="match">
+🏏 Pakistan vs South Africa  
+<b>Toss Prediction:</b> Pakistan  
+<b>Match Prediction:</b> Pakistan Win
+</div>
+
+<div class="match">
+🏏 Sri Lanka vs Bangladesh  
+<b>Toss Prediction:</b> Sri Lanka  
+<b>Match Prediction:</b> Sri Lanka Win
+</div>
+
+</div>
+
+</div>
+
+<div class="notification" id="notify"></div>
+
+<div class="sticky">
+<a href="https://t.me/+vEUvcbB3oMRiMDY1" onclick="joinEvent()">
+🚀 JOIN JACKPOT TELEGRAM
+</a>
+</div>
+
+<script>
+
+function joinEvent(){
+if(typeof fbq !== 'undefined'){
+fbq('track','Lead');
+}
+}
+
+const names=[
+"Rahul","Aman","Rohit","Vikas","Sahil","Arjun","Kunal","Ankit",
+"Deepak","Nitin","Manish","Vivek","Aditya","Shubham","Pankaj",
+"Akash","Sandeep","Sumit","Harsh","Yash","Kartik","Ajay"
+];
+
+function showJoin(){
+
+let name=names[Math.floor(Math.random()*names.length)];
+
+let box=document.getElementById("notify");
+
+box.innerHTML="💰 "+name+" joined JACKPOT channel";
+
+box.style.opacity="1";
+
+setTimeout(()=>{
+box.style.opacity="0";
+},3000);
+
+}
+
+setInterval(showJoin,5000);
+
+setInterval(function(){
+
+let rand=Math.floor(Math.random()*60)+20;
+
+document.getElementById("liveJoin").innerHTML=rand;
+
+},4000);
+
+</script>
 
 </body>
 </html>
-
 
