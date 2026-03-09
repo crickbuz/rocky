@@ -199,18 +199,15 @@ src="https://www.facebook.com/tr?id=1212293950621102&ev=PageView&noscript=1"
 <div class="notification" id="notify"></div>
 
 <div class="sticky">
-<a href="https://t.me/+vEUvcbB3oMRiMDY1" onclick="joinEvent()">
+<a href="https://t.me/+vEUvcbB3oMRiMDY1" onclick="trackSubscribe()">
 🚀 JOIN JACKPOT TELEGRAM
 </a>
 </div>
 
+  <script> function trackSubscribe(){ fbq('track','Subscribe'); }
 <script>
 
-function joinEvent(){
-if(typeof fbq !== 'undefined'){
-fbq('track','Lead');
-}
-}
+
 
 const names=[
 "Rahul","Aman","Rohit","Vikas","Sahil","Arjun","Kunal","Ankit",
@@ -248,5 +245,6 @@ document.getElementById("liveJoin").innerHTML=rand;
 
 </body>
 </html>
+
 
 
